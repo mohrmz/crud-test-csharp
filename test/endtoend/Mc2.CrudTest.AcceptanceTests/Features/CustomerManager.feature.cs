@@ -20,7 +20,7 @@ namespace Mc2.CrudTest.AcceptanceTests.Features
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Customer Manager")]
+    [NUnit.Framework.DescriptionAttribute("CustomerManager")]
     public partial class CustomerManagerFeature
     {
         
@@ -35,8 +35,9 @@ namespace Mc2.CrudTest.AcceptanceTests.Features
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Customer Manager", "As a an operator I wish to be able to Create, Update, Delete customers and list a" +
-                    "ll customers", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "CustomerManager", @"	As a customer management system (CMS) 
+	I want to store customer contact information included firstname, lastname, dateofbirth, email, bankaccountnumber and phonenumber validated with LibPhoneNumber and a valid email and a bank account number with unique Email and a customer with unique Firstname, Lastname and DateOfBirth in database
+	So that i have an accurate information from customers and have simple crud customer model", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -74,16 +75,39 @@ namespace Mc2.CrudTest.AcceptanceTests.Features
             testRunner.CollectScenarioErrors();
         }
         
+        public virtual void FeatureBackground()
+        {
+#line 7
+#line hidden
+            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                        "FirstName",
+                        "LastName",
+                        "DateOfBirth",
+                        "PhoneNumber",
+                        "Email",
+                        "BankAccountNumber"});
+            table1.AddRow(new string[] {
+                        "Mohammad",
+                        "Ramezani",
+                        "1995/05/05",
+                        "+441174960123",
+                        "mohammad0ramezani@gmail.com",
+                        "111"});
+#line 8
+ testRunner.Given("The Valid Customer Has Following Information", ((string)(null)), table1, "Given ");
+#line hidden
+        }
+        
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Operator creates, list, update and delete customers")]
-        [NUnit.Framework.CategoryAttribute("mytag")]
-        public virtual void OperatorCreatesListUpdateAndDeleteCustomers()
+        [NUnit.Framework.DescriptionAttribute("1) Create A New Valid Customer")]
+        [NUnit.Framework.CategoryAttribute("createapi")]
+        public virtual void _1CreateANewValidCustomer()
         {
             string[] tagsOfScenario = new string[] {
-                    "mytag"};
+                    "createapi"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Operator creates, list, update and delete customers", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 6
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("1) Create A New Valid Customer", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 13
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -104,13 +128,419 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 7
- testRunner.Given("to be filled...", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.FeatureBackground();
 #line hidden
-#line 8
- testRunner.When("to be filled...", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 14
+ testRunner.When("I Want To Register A New Valid Customer In CMS", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 9
- testRunner.Then("to be filled...", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 15
+ testRunner.Then("The Customer With Correct Information Should Be Added In DB", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("2) Create A New Customer With Invalid Phone Number")]
+        [NUnit.Framework.CategoryAttribute("createapi")]
+        public virtual void _2CreateANewCustomerWithInvalidPhoneNumber()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "createapi"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("2) Create A New Customer With Invalid Phone Number", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 18
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 7
+this.FeatureBackground();
+#line hidden
+                TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                            "FirstName",
+                            "LastName",
+                            "DateOfBirth",
+                            "PhoneNumber",
+                            "Email",
+                            "BankAccountNumber"});
+                table2.AddRow(new string[] {
+                            "Mohammad",
+                            "Ramezani",
+                            "1374/02/16",
+                            "1174960123",
+                            "mohammad0ramezani@gmail.com",
+                            "111"});
+#line 19
+ testRunner.Given("The Invalid Customer Has Following Information", ((string)(null)), table2, "Given ");
+#line hidden
+#line 22
+ testRunner.When("I Want To Register A New Customer With Invalid Phone Number In CMS", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 23
+ testRunner.Then("The Customer Should Not Be Added In DB And Raise Error", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("3) Create A New Customer With Invalid Email")]
+        [NUnit.Framework.CategoryAttribute("createapi")]
+        public virtual void _3CreateANewCustomerWithInvalidEmail()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "createapi"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("3) Create A New Customer With Invalid Email", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 26
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 7
+this.FeatureBackground();
+#line hidden
+                TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                            "FirstName",
+                            "LastName",
+                            "DateOfBirth",
+                            "PhoneNumber",
+                            "Email",
+                            "BankAccountNumber"});
+                table3.AddRow(new string[] {
+                            "Mohammad",
+                            "Ramezani",
+                            "1374/02/16",
+                            "+441174960123",
+                            "mohammad0ramezani",
+                            "111"});
+#line 27
+ testRunner.Given("The Invalid Customer Has Following Information", ((string)(null)), table3, "Given ");
+#line hidden
+#line 30
+ testRunner.When("I Want To Register A New Customer With Invalid Email In CMS", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 31
+ testRunner.Then("The Customer Should Not Be Added In DB And Raise Error", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("4) Create A New Customer With Invalid Bank Account Number")]
+        [NUnit.Framework.CategoryAttribute("createapi")]
+        public virtual void _4CreateANewCustomerWithInvalidBankAccountNumber()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "createapi"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("4) Create A New Customer With Invalid Bank Account Number", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 34
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 7
+this.FeatureBackground();
+#line hidden
+                TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                            "FirstName",
+                            "LastName",
+                            "DateOfBirth",
+                            "PhoneNumber",
+                            "Email",
+                            "BankAccountNumber"});
+                table4.AddRow(new string[] {
+                            "Mohammad",
+                            "Ramezani",
+                            "1374/02/16",
+                            "+441174960123",
+                            "mohammad0ramezani@gmail.com",
+                            "dsad"});
+#line 35
+ testRunner.Given("The Invalid Customer Has Following Information", ((string)(null)), table4, "Given ");
+#line hidden
+#line 38
+ testRunner.When("I Want To Register A New Customer With Invalid Bank Account Number In CMS", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 39
+ testRunner.Then("The Customer Should Not Be Added In DB And Raise Error", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("4) Create A New Invalid Customer With Duplicated Firstname Lastname DateOfBirth I" +
+            "nformation")]
+        [NUnit.Framework.CategoryAttribute("createapi")]
+        public virtual void _4CreateANewInvalidCustomerWithDuplicatedFirstnameLastnameDateOfBirthInformation()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "createapi"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("4) Create A New Invalid Customer With Duplicated Firstname Lastname DateOfBirth I" +
+                    "nformation", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 42
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 7
+this.FeatureBackground();
+#line hidden
+#line 43
+ testRunner.When("I Want To Register Duplicated Customers In CMS", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 44
+ testRunner.Then("The New Customer Should Not Be Added In DB And Raise Error", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("5) Create A New Invalid Customer With Duplicated Email Information")]
+        [NUnit.Framework.CategoryAttribute("createapi")]
+        public virtual void _5CreateANewInvalidCustomerWithDuplicatedEmailInformation()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "createapi"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("5) Create A New Invalid Customer With Duplicated Email Information", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 47
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 7
+this.FeatureBackground();
+#line hidden
+#line 48
+ testRunner.When("I Want To Register Duplicated Customer With Unique Email In CMS", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 49
+ testRunner.Then("The New Customer Should Not Be Added In DB And Raise Error", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("6) Read Customer")]
+        [NUnit.Framework.CategoryAttribute("readapi")]
+        public virtual void _6ReadCustomer()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "readapi"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("6) Read Customer", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 52
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 7
+this.FeatureBackground();
+#line hidden
+#line 53
+ testRunner.When("I Want To Manage Customers", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 54
+ testRunner.Then("The Customers Should Be Loaded From DB", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("7) Update Customer")]
+        [NUnit.Framework.CategoryAttribute("updateapi")]
+        public virtual void _7UpdateCustomer()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "updateapi"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("7) Update Customer", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 57
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 7
+this.FeatureBackground();
+#line hidden
+                TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                            "FirstName",
+                            "LastName",
+                            "DateOfBirth",
+                            "PhoneNumber",
+                            "Email",
+                            "BankAccountNumber"});
+                table5.AddRow(new string[] {
+                            "MohammadTest",
+                            "Ramezani",
+                            "1364/02/16",
+                            "+441174960123",
+                            "mohammadramezani@gmail.com",
+                            "222"});
+#line 58
+ testRunner.Given("The Customer Information Update To the Following Information", ((string)(null)), table5, "Given ");
+#line hidden
+#line 61
+ testRunner.When("I Want To update Customer Information In CMS", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 62
+ testRunner.Then("The Customer Information Should Be Updated In DB", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("8) Delete Customer")]
+        [NUnit.Framework.CategoryAttribute("deleteapi")]
+        public virtual void _8DeleteCustomer()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "deleteapi"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("8) Delete Customer", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 65
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 7
+this.FeatureBackground();
+#line hidden
+#line 66
+ testRunner.When("I Want To Delete Customer Information In CMS", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 67
+ testRunner.Then("The Customer Information Should Be Deleted From DB And Load Empty", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
