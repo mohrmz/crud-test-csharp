@@ -89,7 +89,7 @@ namespace Mc2.CrudTest.AcceptanceTests.Features
             table1.AddRow(new string[] {
                         "Mohammad",
                         "Ramezani",
-                        "1995/05/05",
+                        "1995-05-05",
                         "+441174960123",
                         "mohammad0ramezani@gmail.com",
                         "111"});
@@ -182,7 +182,7 @@ this.FeatureBackground();
                 table2.AddRow(new string[] {
                             "Mohammad",
                             "Ramezani",
-                            "1374/02/16",
+                            "1995-05-05",
                             "1174960123",
                             "mohammad0ramezani@gmail.com",
                             "111"});
@@ -241,7 +241,7 @@ this.FeatureBackground();
                 table3.AddRow(new string[] {
                             "Mohammad",
                             "Ramezani",
-                            "1374/02/16",
+                            "1995-05-05",
                             "+441174960123",
                             "mohammad0ramezani",
                             "111"});
@@ -300,7 +300,7 @@ this.FeatureBackground();
                 table4.AddRow(new string[] {
                             "Mohammad",
                             "Ramezani",
-                            "1374/02/16",
+                            "1995-05-05",
                             "+441174960123",
                             "mohammad0ramezani@gmail.com",
                             "dsad"});
@@ -487,7 +487,7 @@ this.FeatureBackground();
                 table5.AddRow(new string[] {
                             "MohammadTest",
                             "Ramezani",
-                            "1364/02/16",
+                            "1995-05-05",
                             "+441174960123",
                             "mohammadramezani@gmail.com",
                             "222"});

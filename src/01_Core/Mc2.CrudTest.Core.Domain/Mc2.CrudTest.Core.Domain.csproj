@@ -6,4 +6,20 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Customers\Events\" />
+    <Folder Include="Customers\Exceptions\" />
+    <Folder Include="Customers\Data\" />
+    <Folder Include="Customers\Commands\" />
+    <Folder Include="Customers\Queries\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="libphonenumber-csharp" Version="8.13.19" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\00_Framework\Framework.Core\Framework.Core.csproj" />
+  </ItemGroup>
+
 </Project>
