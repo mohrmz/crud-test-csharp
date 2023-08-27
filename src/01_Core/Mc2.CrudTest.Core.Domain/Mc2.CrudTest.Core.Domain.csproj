@@ -7,14 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Customers\Events\" />
-    <Folder Include="Customers\Exceptions\" />
-    <Folder Include="Customers\Data\" />
-    <Folder Include="Customers\Commands\" />
-    <Folder Include="Customers\Queries\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="Bogus" Version="34.0.2" />
     <PackageReference Include="libphonenumber-csharp" Version="8.13.19" />
   </ItemGroup>
 

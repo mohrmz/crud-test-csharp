@@ -1,4 +1,5 @@
 ﻿using Framework.Core.Domain.Entities;
+using Mc2.CrudTest.Core.Domain.Customers.Events;
 using Mc2.CrudTest.Core.Domain.Customers.ValuesObjects;
 
 namespace Mc2.CrudTest.Core.Domain.Customers.Entities
@@ -33,6 +34,14 @@ namespace Mc2.CrudTest.Core.Domain.Customers.Entities
             PhoneNumber = new PhoneNumber(phoneNumber);
             Email = new Email(email);
             BankAccountNumber = new BankAccountNumber(bankAccountNumber);
+
+            AddEvent(new CustomerCreated(BusinessId.Value,
+                                       firstName,
+                                       lastName,
+                                       dateOfBirth,
+                                       phoneNumber,
+                                       email,
+                                       bankAccountNumber));
         }
 
         public Customer(FirstName firstName,
@@ -48,7 +57,53 @@ namespace Mc2.CrudTest.Core.Domain.Customers.Entities
             PhoneNumber = phoneNumber;
             Email = email;
             BankAccountNumber = bankAccountNumber;
+
+            AddEvent(new CustomerCreated(BusinessId.Value,
+                                        firstName.Value,
+                                        lastName.Value,
+                                        dateOfBirth.Value,
+                                        phoneNumber.Value,
+                                        email.Value,
+                                        bankAccountNumber.Value));
         }
+        #endregion
+
+
+        #region Commands
+        public static Customer Create(FirstName firstName,
+                        LastName lastName,
+                        DateOfBirth dateOfBirth,
+                        PhoneNumber phoneNumber,
+                        Email email,
+                        BankAccountNumber bankAccountNumber) => new(firstName, lastName, dateOfBirth, phoneNumber, email, bankAccountNumber);
+
+        public void Update(FirstName firstName,
+                        LastName lastName,
+                        DateOfBirth dateOfBirth,
+                        PhoneNumber phoneNumber,
+                        Email email,
+                        BankAccountNumber bankAccountNumber)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+            DateOfBirth = dateOfBirth;
+            PhoneNumber = phoneNumber;
+            Email = email;
+            BankAccountNumber = bankAccountNumber;
+
+            AddEvent(new CustomerUpdated(BusinessId.Value,
+                                        firstName.Value,
+                                        lastName.Value,
+                                        dateOfBirth.Value,
+                                        phoneNumber.Value,
+                                        email.Value,
+                                        bankAccountNumber.Value));
+        }
+        public void Delete()
+        {
+            AddEvent(new CustomerDeleted(BusinessId.Value));
+        }
+
         #endregion
     }
 }

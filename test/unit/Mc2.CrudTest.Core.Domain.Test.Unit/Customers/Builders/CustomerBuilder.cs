@@ -1,5 +1,4 @@
 ﻿using Mc2.CrudTest.Core.Domain.Customers.Entities;
-using Mc2.CrudTest.Core.Domain.Test.Unit.Customers.Fakes;
 
 namespace Mc2.CrudTest.Core.Domain.Test.Unit.Customers.Builders
 {

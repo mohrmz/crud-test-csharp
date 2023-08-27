@@ -11,6 +11,15 @@ namespace Mc2.CrudTest.Core.Domain.Customers.Specifications
            return  !Regex.IsMatch(enitity.Value, "((\\d{4})-){3}\\d{4}");
         }
     }
+
+    public class ValidBankAccountNumberSpecification : ISpecification<string>
+    {
+        public bool IsSatisfiedBy(string enitity)
+        {
+            return Regex.IsMatch(enitity, "((\\d{4})-){3}\\d{4}");
+        }
+    }
+
     public class NullBankAccountNumberSpecification : ISpecification<BankAccountNumber>
     {
         public bool IsSatisfiedBy(BankAccountNumber enitity)

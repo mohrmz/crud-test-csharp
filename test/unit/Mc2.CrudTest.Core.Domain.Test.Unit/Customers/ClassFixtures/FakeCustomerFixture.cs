@@ -1,4 +1,4 @@
-﻿using Mc2.CrudTest.Core.Domain.Test.Unit.Customers.Fakes;
+﻿using Mc2.CrudTest.Core.Domain.Customers.Data.Test;
 
 namespace Mc2.CrudTest.Core.Domain.Test.Unit.Customers.ClassFixtures
 {

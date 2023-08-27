@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\00_Framework\Framework.Core\Framework.Core.csproj" />
+    <ProjectReference Include="..\Mc2.CrudTest.Core.Domain\Mc2.CrudTest.Core.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
