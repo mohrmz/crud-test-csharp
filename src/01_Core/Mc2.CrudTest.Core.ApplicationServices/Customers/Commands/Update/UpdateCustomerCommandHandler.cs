@@ -11,18 +11,15 @@ namespace Mc2.CrudTest.Core.ApplicationServices.Customers.Commands.Update;
 public class UpdateCustomerCommandHandler : CommandHandler<UpdateCustomerCommand>
 {
     private readonly ICustomerCommandRepository _customerCommandRepository;
-    private readonly ICustomerQueryRepository _customerQueryRepository;
 
-    public UpdateCustomerCommandHandler(ICustomerCommandRepository customerCommandRepository,
-                                        ICustomerQueryRepository customerQueryRepository) : base()
+    public UpdateCustomerCommandHandler(ICustomerCommandRepository customerCommandRepository) : base()
     {
         _customerCommandRepository = customerCommandRepository;
-        _customerQueryRepository = customerQueryRepository;
     }
 
     public override async Task<CommandResult> Handle(UpdateCustomerCommand command)
     {
-        var customer = await _customerQueryRepository.GetAsync(command.Id);
+        var customer = await _customerCommandRepository.GetAsync(command.Id);
 
         if (customer is null)
             throw new InvalidEntityStateException("Customer not found");

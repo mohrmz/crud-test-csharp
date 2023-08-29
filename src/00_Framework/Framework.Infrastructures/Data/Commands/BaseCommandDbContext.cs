@@ -66,7 +66,6 @@ public abstract class BaseCommandDbContext : DbContext
     {
         base.ConfigureConventions(configurationBuilder);
         configurationBuilder.Properties<BusinessId>().HaveConversion<BusinessIdConversion>();
-
     }
 
     public IEnumerable<string> GetIncludePaths(Type clrEntityType)

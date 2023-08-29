@@ -18,6 +18,11 @@ public class PhoneNumber : BaseValueObject<PhoneNumber>
         Value = value;
 
         var validator = new NotValidLibphoneNumberSpecifications();
+        if (string.IsNullOrWhiteSpace(value))
+        {
+            throw new InvalidValueObjectStateException("ValidationErrorIsRequire", nameof(PhoneNumber));
+        }
+
         if (validator.IsSatisfiedBy(this))
         {
             throw new InvalidValueObjectStateException("ValidationErrorIsRequire", nameof(PhoneNumber));

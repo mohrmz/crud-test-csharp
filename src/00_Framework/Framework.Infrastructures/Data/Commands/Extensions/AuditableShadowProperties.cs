@@ -42,7 +42,6 @@ public static class AuditableShadowProperties
             addedEntry.Property(CreatedDateTime).CurrentValue = now;
         }
     }
-
 }
 
 

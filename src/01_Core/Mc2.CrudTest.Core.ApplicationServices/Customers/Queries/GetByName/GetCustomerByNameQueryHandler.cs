@@ -2,6 +2,7 @@
 using Framework.Core.RequestResponse.Queries;
 using Mc2.CrudTest.Core.Contracts.Customers.Queries;
 using Mc2.CrudTest.Core.RequestResponse.Customers.Queries.GetByName;
+using Mc2.CrudTest.Core.RequestResponse.Customers.Queries.Shared;
 
 namespace Mc2.CrudTest.Core.ApplicationServices.Customers.Queries.GetByName;
 

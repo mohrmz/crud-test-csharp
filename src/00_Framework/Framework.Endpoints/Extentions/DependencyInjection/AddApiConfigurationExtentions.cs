@@ -20,7 +20,7 @@ public static class AddApiConfigurationExtensions
 
     public static void UseApiExceptionHandler(this IApplicationBuilder app)
     {
-        app.UseApiExceptionHandler(options =>
+        app.UseApiExceptionsHandler(options =>
         {
             options.AddResponseDetails = (context, ex, error) =>
             {

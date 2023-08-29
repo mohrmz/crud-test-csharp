@@ -1,12 +1,10 @@
 ﻿using Framework.Infrastructures.Data.Commands.Extensions;
 using Microsoft.EntityFrameworkCore.Diagnostics;
-using Microsoft.EntityFrameworkCore.Infrastructure;
 
 namespace Framework.Infrastructures.Data.Commands.Interceptors;
 
 public class AddAuditDataInterceptor : SaveChangesInterceptor
 {
-
     public override InterceptionResult<int> SavingChanges(DbContextEventData eventData, InterceptionResult<int> result)
     {
         AddShadowProperties(eventData);

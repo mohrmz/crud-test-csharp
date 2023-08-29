@@ -2,6 +2,7 @@
 using Framework.Core.Domain.Exceptions;
 using Mc2.CrudTest.Core.Domain.Test.Unit.Customers.Builders;
 using Mc2.CrudTest.Core.Domain.Test.Unit.Customers.ClassFixtures;
+using PhoneNumbers;
 
 namespace Mc2.CrudTest.Core.Domain.Test.Unit.Customers.Tests
 {
@@ -36,7 +37,7 @@ namespace Mc2.CrudTest.Core.Domain.Test.Unit.Customers.Tests
             //Assert
             customer.FirstName.Value.Should().Be(fakeCustomerFixture.FakeCustomer.FirstName);
             customer.LastName.Value.Should().Be(fakeCustomerFixture.FakeCustomer.LastName);
-            customer.DateOfBirth.Value.Should().Be(fakeCustomerFixture.FakeCustomer.DateOfBirth);
+            customer.DateOfBirth.Value.ToString().Should().Be(fakeCustomerFixture.FakeCustomer.DateOfBirth);
             customer.PhoneNumber.Value.Should().Be(fakeCustomerFixture.FakeCustomer.PhoneNumber);
             customer.Email.Value.Should().Be(fakeCustomerFixture.FakeCustomer.Email);
             customer.BankAccountNumber.Value.Should().Be(fakeCustomerFixture.FakeCustomer.BankAccountNumber);
@@ -103,7 +104,7 @@ namespace Mc2.CrudTest.Core.Domain.Test.Unit.Customers.Tests
                 .Build();
 
             //Assert
-            ctor.Should().ThrowExactly<InvalidValueObjectStateException>();
+            ctor.Should().Throw<InvalidValueObjectStateException>();
         }
 
         [Theory]
@@ -118,7 +119,7 @@ namespace Mc2.CrudTest.Core.Domain.Test.Unit.Customers.Tests
                 .Build();
 
             //Assert
-            ctor.Should().ThrowExactly<InvalidValueObjectStateException>();
+            ctor.Should().ThrowExactly<NumberParseException>();
         }
 
         [Theory]

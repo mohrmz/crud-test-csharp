@@ -1,4 +1,5 @@
-﻿using Mc2.CrudTest.Core.Domain.Customers.Entities;
+﻿using Mc2.CrudTest.Core.Domain.Customers.Data.Test;
+using Mc2.CrudTest.Core.Domain.Customers.Entities;
 
 namespace Mc2.CrudTest.Core.Domain.Test.Unit.Customers.Builders
 {
@@ -13,6 +14,14 @@ namespace Mc2.CrudTest.Core.Domain.Test.Unit.Customers.Builders
 
         public CustomerBuilder()
         {
+            var fake = new FakeCustomer();
+            var customer = fake.Generate();
+            _firstName = customer.FirstName;
+            _lastName = customer.LastName;
+            _dateOfBirth = customer.DateOfBirth;
+            _phoneNumber = customer.PhoneNumber;
+            _email = customer.Email;
+            _bankAccountNumber = customer.BankAccountNumber;
         }
 
         public CustomerBuilder(string firstName, string lastName, string dateOfBirth, string phoneNumber, string email, string bankAccountNumber)

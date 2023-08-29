@@ -38,7 +38,7 @@ namespace Mc2.CrudTest.Core.Domain.Customers.Entities
             AddEvent(new CustomerCreated(BusinessId.Value,
                                        firstName,
                                        lastName,
-                                       dateOfBirth,
+                                       DateOfBirth.Value,
                                        phoneNumber,
                                        email,
                                        bankAccountNumber));
@@ -94,7 +94,7 @@ namespace Mc2.CrudTest.Core.Domain.Customers.Entities
             AddEvent(new CustomerUpdated(BusinessId.Value,
                                         firstName.Value,
                                         lastName.Value,
-                                        dateOfBirth.Value,
+                                        DateOfBirth.Value,
                                         phoneNumber.Value,
                                         email.Value,
                                         bankAccountNumber.Value));

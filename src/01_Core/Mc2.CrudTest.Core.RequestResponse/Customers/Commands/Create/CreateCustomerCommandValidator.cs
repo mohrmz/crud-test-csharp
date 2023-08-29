@@ -23,10 +23,9 @@ public class CreateCustomerCommandValidator : AbstractValidator<CreateCustomerCo
        .WithMessage("DateOfBirth is required");
 
         RuleFor(c => c.PhoneNumber)
+       .PhoneNumberValidator()
        .NotNull()
-       .WithMessage("PhoneNumber is required")
-       .Must(value => phoneNumberValidator.IsSatisfiedBy(value))
-       .WithMessage("PhoneNumber is not valid");
+       .WithMessage("PhoneNumber is required");
 
         RuleFor(c => c.Email)
         .NotNull()
@@ -35,9 +34,8 @@ public class CreateCustomerCommandValidator : AbstractValidator<CreateCustomerCo
         .WithMessage("Invalid email format");
 
         RuleFor(c => c.BankAccountNumber)
+       .BankAccountNumberValidator()
        .NotNull()
-       .WithMessage("BankAccountNumber is required")
-       .Must(value => bankAccountValidator.IsSatisfiedBy(value))
-       .WithMessage("BankAccountNumber is not valid");
+       .WithMessage("BankAccountNumber is required");
     }
 }

@@ -32,8 +32,8 @@ public class CustomerServiceTests : IClassFixture<CustomerFixture>
         _customerQueryRepository = Substitute.For<ICustomerQueryRepository>();
         _createCustomerHandler = new CreateCustomerCommandHandler(_customerCommandRepository);
         _getCustomerByNameQueryHandler = new GetCustomerByNameQueryHandler(_customerQueryRepository);
-        _updateCustomerHandler = new UpdateCustomerCommandHandler(_customerCommandRepository, _customerQueryRepository);
-        _deleteCustomerHandler = new DeleteCustomerCommandHandler(_customerCommandRepository, _customerQueryRepository);
+        _updateCustomerHandler = new UpdateCustomerCommandHandler(_customerCommandRepository);
+        _deleteCustomerHandler = new DeleteCustomerCommandHandler(_customerCommandRepository);
         _customerFixture = customerFixture;
     }
 

@@ -8,7 +8,7 @@ namespace Mc2.CrudTest.Core.Domain.Customers.Specifications
     {
         public bool IsSatisfiedBy(BankAccountNumber enitity)
         {
-           return  !Regex.IsMatch(enitity.Value, "((\\d{4})-){3}\\d{4}");
+           return !string.IsNullOrWhiteSpace(enitity.Value) ? !Regex.IsMatch(enitity.Value, BankAccountNumberConstants.BankAccountNumberValidRegex) : true;
         }
     }
 
@@ -16,7 +16,8 @@ namespace Mc2.CrudTest.Core.Domain.Customers.Specifications
     {
         public bool IsSatisfiedBy(string enitity)
         {
-            return Regex.IsMatch(enitity, "((\\d{4})-){3}\\d{4}");
+            var result = Regex.IsMatch(enitity, BankAccountNumberConstants.BankAccountNumberValidRegex);
+            return result;
         }
     }
 
@@ -26,5 +27,10 @@ namespace Mc2.CrudTest.Core.Domain.Customers.Specifications
         {
             return string.IsNullOrEmpty(enitity.Value);
         }
+    }
+
+    public class BankAccountNumberConstants
+    {
+        public const string BankAccountNumberValidRegex = "^[A-Z]{2}[0-9]{2}[A-Z0-9]{1,30}$";
     }
 }

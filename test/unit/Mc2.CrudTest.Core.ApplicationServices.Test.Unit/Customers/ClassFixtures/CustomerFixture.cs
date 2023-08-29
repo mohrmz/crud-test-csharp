@@ -1,7 +1,7 @@
-﻿using Mc2.CrudTest.Core.ApplicationServices.Test.Unit.Customers.Mappers;
-using Mc2.CrudTest.Core.Domain.Customers.Data.Test;
+﻿using Mc2.CrudTest.Core.Domain.Customers.Data.Test;
 using Mc2.CrudTest.Core.RequestResponse.Customers.Commands.Create;
 using Mc2.CrudTest.Core.RequestResponse.Customers.Commands.Update;
+using Mc2.CrudTest.Presentation.Test.Shared.Mappers;
 
 namespace Mc2.CrudTest.Core.ApplicationServices.Test.Unit.Customers.ClassFixtures;
 

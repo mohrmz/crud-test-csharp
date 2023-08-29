@@ -19,6 +19,11 @@ public class Email : BaseValueObject<Email>
 
         var validator = new NotValidEmailSpecification();
 
+        if(string.IsNullOrWhiteSpace(value))
+        {
+            throw new InvalidValueObjectStateException("ValidationErrorIsRequire", nameof(Email));
+        }
+
         if (validator.IsSatisfiedBy(this))
         {
             throw new InvalidValueObjectStateException("ValidationErrorIsRequire", nameof(Email));

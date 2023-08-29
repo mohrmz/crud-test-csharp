@@ -19,20 +19,25 @@ namespace Mc2.CrudTest.AcceptanceTests.Features
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("CustomerManager")]
-    public partial class CustomerManagerFeature
+    public partial class CustomerManagerFeature : object, Xunit.IClassFixture<CustomerManagerFeature.FixtureData>, System.IDisposable
     {
         
-        private TechTalk.SpecFlow.ITestRunner testRunner;
+        private static TechTalk.SpecFlow.ITestRunner testRunner;
         
         private string[] _featureTags = ((string[])(null));
+        
+        private Xunit.Abstractions.ITestOutputHelper _testOutputHelper;
         
 #line 1 "CustomerManager.feature"
 #line hidden
         
-        [NUnit.Framework.OneTimeSetUpAttribute()]
-        public virtual void FeatureSetup()
+        public CustomerManagerFeature(CustomerManagerFeature.FixtureData fixtureData, Mc2_CrudTest_AcceptanceTests_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
+        {
+            this._testOutputHelper = testOutputHelper;
+            this.TestInitialize();
+        }
+        
+        public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
             TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "CustomerManager", @"	As a customer management system (CMS) 
@@ -41,19 +46,16 @@ namespace Mc2.CrudTest.AcceptanceTests.Features
             testRunner.OnFeatureStart(featureInfo);
         }
         
-        [NUnit.Framework.OneTimeTearDownAttribute()]
-        public virtual void FeatureTearDown()
+        public static void FeatureTearDown()
         {
             testRunner.OnFeatureEnd();
             testRunner = null;
         }
         
-        [NUnit.Framework.SetUpAttribute()]
         public virtual void TestInitialize()
         {
         }
         
-        [NUnit.Framework.TearDownAttribute()]
         public virtual void TestTearDown()
         {
             testRunner.OnScenarioEnd();
@@ -62,7 +64,7 @@ namespace Mc2.CrudTest.AcceptanceTests.Features
         public virtual void ScenarioInitialize(TechTalk.SpecFlow.ScenarioInfo scenarioInfo)
         {
             testRunner.OnScenarioInitialize(scenarioInfo);
-            testRunner.ScenarioContext.ScenarioContainer.RegisterInstanceAs<NUnit.Framework.TestContext>(NUnit.Framework.TestContext.CurrentContext);
+            testRunner.ScenarioContext.ScenarioContainer.RegisterInstanceAs<Xunit.Abstractions.ITestOutputHelper>(_testOutputHelper);
         }
         
         public virtual void ScenarioStart()
@@ -92,15 +94,21 @@ namespace Mc2.CrudTest.AcceptanceTests.Features
                         "1995-05-05",
                         "+441174960123",
                         "mohammad0ramezani@gmail.com",
-                        "111"});
+                        "DE12345678901234567890"});
 #line 8
  testRunner.Given("The Valid Customer Has Following Information", ((string)(null)), table1, "Given ");
 #line hidden
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("1) Create A New Valid Customer")]
-        [NUnit.Framework.CategoryAttribute("createapi")]
+        void System.IDisposable.Dispose()
+        {
+            this.TestTearDown();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="1) Create A New Valid Customer")]
+        [Xunit.TraitAttribute("FeatureTitle", "CustomerManager")]
+        [Xunit.TraitAttribute("Description", "1) Create A New Valid Customer")]
+        [Xunit.TraitAttribute("Category", "createapi")]
         public virtual void _1CreateANewValidCustomer()
         {
             string[] tagsOfScenario = new string[] {
@@ -140,9 +148,10 @@ this.FeatureBackground();
             this.ScenarioCleanup();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("2) Create A New Customer With Invalid Phone Number")]
-        [NUnit.Framework.CategoryAttribute("createapi")]
+        [Xunit.SkippableFactAttribute(DisplayName="2) Create A New Customer With Invalid Phone Number")]
+        [Xunit.TraitAttribute("FeatureTitle", "CustomerManager")]
+        [Xunit.TraitAttribute("Description", "2) Create A New Customer With Invalid Phone Number")]
+        [Xunit.TraitAttribute("Category", "createapi")]
         public virtual void _2CreateANewCustomerWithInvalidPhoneNumber()
         {
             string[] tagsOfScenario = new string[] {
@@ -180,28 +189,29 @@ this.FeatureBackground();
                             "Email",
                             "BankAccountNumber"});
                 table2.AddRow(new string[] {
-                            "Mohammad",
+                            "MohammadPhon",
                             "Ramezani",
                             "1995-05-05",
                             "1174960123",
-                            "mohammad0ramezani@gmail.com",
-                            "111"});
+                            "mohammadramezani@gmail.com",
+                            "DE12345678901234567890"});
 #line 19
- testRunner.Given("The Invalid Customer Has Following Information", ((string)(null)), table2, "Given ");
+ testRunner.Given("The Invalid Phone Number Customer Has Following Information", ((string)(null)), table2, "Given ");
 #line hidden
 #line 22
  testRunner.When("I Want To Register A New Customer With Invalid Phone Number In CMS", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 23
- testRunner.Then("The Customer Should Not Be Added In DB And Raise Error", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("The Invalid Phone Number Customer Should Not Be Added In DB And Raise Error", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("3) Create A New Customer With Invalid Email")]
-        [NUnit.Framework.CategoryAttribute("createapi")]
+        [Xunit.SkippableFactAttribute(DisplayName="3) Create A New Customer With Invalid Email")]
+        [Xunit.TraitAttribute("FeatureTitle", "CustomerManager")]
+        [Xunit.TraitAttribute("Description", "3) Create A New Customer With Invalid Email")]
+        [Xunit.TraitAttribute("Category", "createapi")]
         public virtual void _3CreateANewCustomerWithInvalidEmail()
         {
             string[] tagsOfScenario = new string[] {
@@ -239,28 +249,29 @@ this.FeatureBackground();
                             "Email",
                             "BankAccountNumber"});
                 table3.AddRow(new string[] {
-                            "Mohammad",
+                            "Mohammadma",
                             "Ramezani",
                             "1995-05-05",
                             "+441174960123",
                             "mohammad0ramezani",
-                            "111"});
+                            "DE12345678901234567890"});
 #line 27
- testRunner.Given("The Invalid Customer Has Following Information", ((string)(null)), table3, "Given ");
+ testRunner.Given("The Invalid Email Customer Has Following Information", ((string)(null)), table3, "Given ");
 #line hidden
 #line 30
  testRunner.When("I Want To Register A New Customer With Invalid Email In CMS", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 31
- testRunner.Then("The Customer Should Not Be Added In DB And Raise Error", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("The Invalid Email Customer Customer Should Not Be Added In DB And Raise Error", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("4) Create A New Customer With Invalid Bank Account Number")]
-        [NUnit.Framework.CategoryAttribute("createapi")]
+        [Xunit.SkippableFactAttribute(DisplayName="4) Create A New Customer With Invalid Bank Account Number")]
+        [Xunit.TraitAttribute("FeatureTitle", "CustomerManager")]
+        [Xunit.TraitAttribute("Description", "4) Create A New Customer With Invalid Bank Account Number")]
+        [Xunit.TraitAttribute("Category", "createapi")]
         public virtual void _4CreateANewCustomerWithInvalidBankAccountNumber()
         {
             string[] tagsOfScenario = new string[] {
@@ -298,36 +309,36 @@ this.FeatureBackground();
                             "Email",
                             "BankAccountNumber"});
                 table4.AddRow(new string[] {
-                            "Mohammad",
+                            "Mohammadban",
                             "Ramezani",
                             "1995-05-05",
                             "+441174960123",
-                            "mohammad0ramezani@gmail.com",
-                            "dsad"});
+                            "mohammad12ramezani@gmail.com",
+                            "213"});
 #line 35
- testRunner.Given("The Invalid Customer Has Following Information", ((string)(null)), table4, "Given ");
+ testRunner.Given("The Invalid Bank Account Number  Customer Has Following Information", ((string)(null)), table4, "Given ");
 #line hidden
 #line 38
  testRunner.When("I Want To Register A New Customer With Invalid Bank Account Number In CMS", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 39
- testRunner.Then("The Customer Should Not Be Added In DB And Raise Error", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("The Invalid Bank Account Number Customer Should Not Be Added In DB And Raise Erro" +
+                        "r", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("4) Create A New Invalid Customer With Duplicated Firstname Lastname DateOfBirth I" +
-            "nformation")]
-        [NUnit.Framework.CategoryAttribute("createapi")]
-        public virtual void _4CreateANewInvalidCustomerWithDuplicatedFirstnameLastnameDateOfBirthInformation()
+        [Xunit.SkippableFactAttribute(DisplayName="5) Read Customer")]
+        [Xunit.TraitAttribute("FeatureTitle", "CustomerManager")]
+        [Xunit.TraitAttribute("Description", "5) Read Customer")]
+        [Xunit.TraitAttribute("Category", "readapi")]
+        public virtual void _5ReadCustomer()
         {
             string[] tagsOfScenario = new string[] {
-                    "createapi"};
+                    "readapi"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("4) Create A New Invalid Customer With Duplicated Firstname Lastname DateOfBirth I" +
-                    "nformation", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("5) Read Customer", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 42
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -352,109 +363,26 @@ this.ScenarioInitialize(scenarioInfo);
 this.FeatureBackground();
 #line hidden
 #line 43
- testRunner.When("I Want To Register Duplicated Customers In CMS", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 44
- testRunner.Then("The New Customer Should Not Be Added In DB And Raise Error", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            }
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("5) Create A New Invalid Customer With Duplicated Email Information")]
-        [NUnit.Framework.CategoryAttribute("createapi")]
-        public virtual void _5CreateANewInvalidCustomerWithDuplicatedEmailInformation()
-        {
-            string[] tagsOfScenario = new string[] {
-                    "createapi"};
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("5) Create A New Invalid Customer With Duplicated Email Information", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 47
-this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
-#line 7
-this.FeatureBackground();
-#line hidden
-#line 48
- testRunner.When("I Want To Register Duplicated Customer With Unique Email In CMS", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 49
- testRunner.Then("The New Customer Should Not Be Added In DB And Raise Error", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            }
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("6) Read Customer")]
-        [NUnit.Framework.CategoryAttribute("readapi")]
-        public virtual void _6ReadCustomer()
-        {
-            string[] tagsOfScenario = new string[] {
-                    "readapi"};
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("6) Read Customer", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 52
-this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
-#line 7
-this.FeatureBackground();
-#line hidden
-#line 53
  testRunner.When("I Want To Manage Customers", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 54
+#line 44
  testRunner.Then("The Customers Should Be Loaded From DB", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("7) Update Customer")]
-        [NUnit.Framework.CategoryAttribute("updateapi")]
-        public virtual void _7UpdateCustomer()
+        [Xunit.SkippableFactAttribute(DisplayName="6) Update Customer")]
+        [Xunit.TraitAttribute("FeatureTitle", "CustomerManager")]
+        [Xunit.TraitAttribute("Description", "6) Update Customer")]
+        [Xunit.TraitAttribute("Category", "updateapi")]
+        public virtual void _6UpdateCustomer()
         {
             string[] tagsOfScenario = new string[] {
                     "updateapi"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("7) Update Customer", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 57
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("6) Update Customer", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 47
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -490,30 +418,31 @@ this.FeatureBackground();
                             "1995-05-05",
                             "+441174960123",
                             "mohammadramezani@gmail.com",
-                            "222"});
-#line 58
+                            "DE12345678901234567890"});
+#line 48
  testRunner.Given("The Customer Information Update To the Following Information", ((string)(null)), table5, "Given ");
 #line hidden
-#line 61
+#line 51
  testRunner.When("I Want To update Customer Information In CMS", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 62
+#line 52
  testRunner.Then("The Customer Information Should Be Updated In DB", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("8) Delete Customer")]
-        [NUnit.Framework.CategoryAttribute("deleteapi")]
-        public virtual void _8DeleteCustomer()
+        [Xunit.SkippableFactAttribute(DisplayName="7) Delete Customer")]
+        [Xunit.TraitAttribute("FeatureTitle", "CustomerManager")]
+        [Xunit.TraitAttribute("Description", "7) Delete Customer")]
+        [Xunit.TraitAttribute("Category", "deleteapi")]
+        public virtual void _7DeleteCustomer()
         {
             string[] tagsOfScenario = new string[] {
                     "deleteapi"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("8) Delete Customer", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 65
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("7) Delete Customer", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 55
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -536,14 +465,30 @@ this.ScenarioInitialize(scenarioInfo);
 #line 7
 this.FeatureBackground();
 #line hidden
-#line 66
+#line 56
  testRunner.When("I Want To Delete Customer Information In CMS", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 67
+#line 57
  testRunner.Then("The Customer Information Should Be Deleted From DB And Load Empty", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
+        }
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
+        [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        public class FixtureData : System.IDisposable
+        {
+            
+            public FixtureData()
+            {
+                CustomerManagerFeature.FeatureSetup();
+            }
+            
+            void System.IDisposable.Dispose()
+            {
+                CustomerManagerFeature.FeatureTearDown();
+            }
         }
     }
 }

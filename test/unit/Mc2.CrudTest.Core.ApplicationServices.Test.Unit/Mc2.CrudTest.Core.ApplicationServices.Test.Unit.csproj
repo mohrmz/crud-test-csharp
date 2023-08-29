@@ -30,6 +30,7 @@
     <ProjectReference Include="..\..\..\src\00_Framework\Framework.Core\Framework.Core.csproj" />
     <ProjectReference Include="..\..\..\src\01_Core\Mc2.CrudTest.Core.ApplicationServices\Mc2.CrudTest.Core.ApplicationServices.csproj" />
     <ProjectReference Include="..\..\..\src\01_Core\Mc2.CrudTest.Core.RequestResponse\Mc2.CrudTest.Core.RequestResponse.csproj" />
+    <ProjectReference Include="..\..\shared\Mc2.CrudTest.Presentation.Test.Shared\Mc2.CrudTest.Presentation.Test.Shared.csproj" />
   </ItemGroup>
 
 </Project>

@@ -17,7 +17,7 @@ public class BankAccountNumber : BaseValueObject<BankAccountNumber>
     {
         Value = value;
 
-        var validator = new NotValidBankAccountNumberSpecification().And(new NullBankAccountNumberSpecification());
+        var validator = new NullBankAccountNumberSpecification().And(new NotValidBankAccountNumberSpecification());
         if (validator.IsSatisfiedBy(this))
         {
             throw new InvalidValueObjectStateException("ValidationErrorIsRequire", nameof(BankAccountNumber));

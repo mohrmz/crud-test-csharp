@@ -3,6 +3,7 @@ using Mc2.CrudTest.AcceptanceTests.Tools.NetCoreHosting;
 
 namespace Mc2.CrudTest.AcceptanceTests.Hooks
 {
+    [Binding]
     public sealed class RunHostHook
     {
         private static readonly DotNetCoreHost Host =

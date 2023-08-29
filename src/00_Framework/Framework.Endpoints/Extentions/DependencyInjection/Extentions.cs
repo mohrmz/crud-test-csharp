@@ -12,7 +12,7 @@ public static class Extensions
     {
 
         var assemblies = GetAssemblies(assemblyNamesForSearch);
-        services.AddApplicationServices(assemblies).AddCustomeDepenecies(assemblies);
+        services.AddApplicationServices(assemblies).AddDataAccess(assemblies).AddCustomeDepenecies(assemblies);
         return services;
     }
     public static IServiceCollection AddCustomeDepenecies(this IServiceCollection services, IEnumerable<Assembly> assemblies)
