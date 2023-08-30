@@ -19,7 +19,7 @@ public partial class CustomerQueryDbContext : BaseQueryDbContext
     {
         if (!optionsBuilder.IsConfigured)
         {
-            optionsBuilder.UseSqlServer("Server =.; Database = Mc2; User Id =sa; Password= 1qaz!QAZ; MultipleActiveResultSets=true");
+            optionsBuilder.UseSqlServer("Server =sql-server; Database = Mc2; User Id =sa; Password= 1qaz!QAZ; MultipleActiveResultSets=true ;TrustServerCertificate=true");
         }
     }
 

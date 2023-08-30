@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Mc2.CrudTest.Infrastructure.Data.SqlServer.Commands.Migrations
 {
     [DbContext(typeof(CustomerCommandDbContext))]
-    [Migration("20230828134422_init")]
-    partial class init
+    [Migration("20230830021422_InitDB")]
+    partial class InitDB
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

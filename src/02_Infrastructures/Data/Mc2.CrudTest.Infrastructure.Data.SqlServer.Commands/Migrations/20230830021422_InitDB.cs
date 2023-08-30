@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Mc2.CrudTest.Infrastructure.Data.SqlServer.Commands.Migrations
 {
     /// <inheritdoc />
-    public partial class init : Migration
+    public partial class InitDB : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
