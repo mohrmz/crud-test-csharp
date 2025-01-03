@@ -46,3 +46,11 @@ Customer {
 ## Nice to do:
 - Blazor Web.
 - Docker-compose project that loads database service automatically which `docker-compose up`
+
+
+----------------------------------------------------------------------------------------------------------
+This project demonstrates a CRUD application built with ASP.NET Core, showcasing best practices in software development with principles like Clean Architecture, CQRS, TDD, DDD, and BDD. It manages customer data with a model including attributes such as Firstname, Lastname, Date of Birth, Phone Number, Email, and Bank Account Number, ensuring data integrity through comprehensive validation using the Google LibPhoneNumber library and custom logic for emails and bank accounts. The database design enforces uniqueness for customers (Firstname, Lastname, Date of Birth) and emails, while optimizing storage
+The project is structured into distinct layers: Domain, Application, Infrastructure, and Presentation, promoting modularity and maintainability. The CQRS pattern separates command and query responsibilities, enhancing scalability and simplifying business logic management. Docker Compose is used for rapid setup and deployment, easing the process for developers.
+To facilitate interaction, the project integrates Swagger UI, enabling intuitive API testing and debugging. The inclusion of optional Blazor Web further extends user experience, allowing for a robust and interactive frontend. Validations ensure that only clean and reliable data is entered, reducing potential bugs or inconsistencies
+Adherence to Clean Code principles is evident through consistent naming conventions, modular functions, and clear documentation. The Git history is meticulously maintained with clean, incremental commits, reflecting a logical progression of work and enabling easier collaboration. 
+This sample project is a testament to modern development standards, providing a maintainable, scalable, and well-documented codebase, ideal for showcasing advanced engineering practices. Its thoughtful implementation of software patterns and automated setup makes it a valuable reference for developers aiming to learn and apply clean architecture and efficient coding practices
